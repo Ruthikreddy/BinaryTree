@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+
 namespace BinaryTree
 {
     class BTree<T> where T : IComparable<T>
@@ -16,6 +17,10 @@ namespace BinaryTree
         }
         int leftCount = 0, rightCount = 0;
         bool result = false;
+        /// <summary>
+        /// Insert the value in Binary Tree
+        /// </summary>
+        /// <param name="item"></param>
         public void Insert(T item)
         {
             T currentNodeValue = this.NodeData;
@@ -34,6 +39,9 @@ namespace BinaryTree
                     this.RightTree.Insert(item);
             }
         }
+        /// <summary>
+        /// Display the elements of Binary Tree
+        /// </summary>
         public void Display()
         {
             if (this.LeftTree != null)
@@ -42,15 +50,13 @@ namespace BinaryTree
                 this.LeftTree.Display();
             }
             Console.WriteLine(this.NodeData.ToString());
-            if (this.RightTree != null)
+            if (RightTree != null)
             {
                 this.rightCount++;
                 this.RightTree.Display();
+
             }
         }
-        public void GetSize()
-        {
-            Console.WriteLine("Size" + " " + (1 + this.leftCount + this.rightCount));
-        }
+        public void GetSize() => Console.WriteLine("Size" + " " + (1 + leftCount + rightCount));
     }
 }
